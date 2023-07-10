@@ -8,12 +8,12 @@ import kbl.test.hdj.apis.v1.visit.payload.VisitorsResponse;
 public interface VisitService {
     VisitorsResponse getVisitors();
 
-    VisitorResponse getVisitor(String id);
+    VisitorResponse getVisitor(Long id);
 
     Long saveVisit(SaveVisitRequest saveVisitRequest);
 
-    void deleteVisit(String id);
+    void deleteVisit(Long id);
 
-    Long updateVisit(String id, UpdateVisitRequest updateVisitRequest);
+    Long updateVisit(Long id, UpdateVisitRequest updateVisitRequest);
 
 }

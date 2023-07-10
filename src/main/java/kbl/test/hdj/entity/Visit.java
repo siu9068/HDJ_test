@@ -16,14 +16,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-public class Visit{
+public class Visit extends BaseTime {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @CreatedDate
-    @Column(name = "reg_date", columnDefinition = "datetime not null comment '접수일시'")
-    private LocalDateTime regDate;
 
     @Convert(converter = VisitTypeConverter.class)
     @Column(name = "visit_type", columnDefinition = "varchar(10) not null comment '방문상태코드'")
@@ -36,4 +32,8 @@ public class Visit{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id", foreignKey = @ForeignKey(name = "fk_visit_hospital"))
     private Hospital hospital;
+
+    public void updateVisitType(VisitType visitType) {
+        this.visitType = visitType;
+    }
 }

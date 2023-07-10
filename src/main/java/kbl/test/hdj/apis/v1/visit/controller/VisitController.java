@@ -35,7 +35,7 @@ public class VisitController {
     }
 
     @GetMapping("/visit/{id}")
-    public ResponseEntity<?> getVisitor(@PathVariable String id){
+    public ResponseEntity<?> getVisitor(@PathVariable Long id){
         try {
             VisitorResponse visitorResponse = visitService.getVisitor(id);
             return ResponseEntityCustom.of(HttpStatus.OK,visitorResponse);
@@ -63,7 +63,7 @@ public class VisitController {
     }
 
     @PatchMapping("/visit/{id}")
-    public ResponseEntity<?> updateVisit(@PathVariable String id, @RequestBody UpdateVisitRequest updateVisitRequest){
+    public ResponseEntity<?> updateVisit(@PathVariable Long id, @RequestBody UpdateVisitRequest updateVisitRequest){
         try {
             Long result = visitService.updateVisit(id,updateVisitRequest);
             return ResponseEntityCustom.of(HttpStatus.CREATED,result);
@@ -77,7 +77,7 @@ public class VisitController {
     }
 
     @DeleteMapping("/visit/{id}")
-    public ResponseEntity<?> deleteVisit(@PathVariable String id){
+    public ResponseEntity<?> deleteVisit(@PathVariable Long id){
         try {
             visitService.deleteVisit(id);
             return ResponseEntityCustom.of(HttpStatus.NO_CONTENT,null);
