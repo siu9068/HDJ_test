@@ -1,11 +1,15 @@
 package kbl.test.hdj.entity;
 
 import jakarta.persistence.*;
+import kbl.test.hdj.apis.v1.patient.payload.UpdatePatientRequest;
 import kbl.test.hdj.enums.GenderType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @AllArgsConstructor
@@ -37,4 +41,14 @@ public class Patient extends BaseTime{
     @JoinColumn(name = "hospital_id", foreignKey = @ForeignKey(name = "fk_patient_hospital"))
     private Hospital hospital;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
+    private List<Visit> visits = new ArrayList<>();
+
+    public void updateInfo(UpdatePatientRequest updatePatientRequest) {
+        this.name = updatePatientRequest.getName();
+        this.regNum = updatePatientRequest.getRegNum();
+        this.genderType = updatePatientRequest.getGenderType();
+        this.birth = updatePatientRequest.getBirth();
+        this.phone = updatePatientRequest.getPhone();
+    }
 }
