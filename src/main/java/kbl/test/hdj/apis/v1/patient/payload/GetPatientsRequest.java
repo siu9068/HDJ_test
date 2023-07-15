@@ -2,9 +2,7 @@ package kbl.test.hdj.apis.v1.patient.payload;
 
 import kbl.test.hdj.enums.SearchType;
 import kbl.test.hdj.paging.PageObject;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
 public class GetPatientsRequest extends PageObject {

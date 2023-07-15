@@ -1,0 +1,56 @@
+= API 목록
+에이치디정션 과제 API 목록
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[Visit-API]]
+== 방문자
+
+[[방문자-목록-조회]]
+=== 방문자 목록 조회
+operation::get-visitors[snippets='http-request,http-response,response-body,response-fields']
+
+[[방문자-단일-조회]]
+=== 방문자 단일 조회
+operation::get-visitor[snippets='http-request,http-response,path-parameters,response-body,response-fields']
+
+[[방문자-등록]]
+=== 방문자 등록
+operation::post-visit[snippets='http-request,http-response,request-body,response-body']
+
+[[방문자-수정]]
+=== 방문자 수정
+operation::patch-visit[snippets='http-request,http-response,path-parameters,response-body']
+
+[[방문자-삭제]]
+=== 방문자 삭제
+operation::delete-visit[snippets='http-request,http-response,path-parameters']
+
+
+[[Patient-API]]
+== 환자
+
+[[환자-목록-조회]]
+=== 환자 목록 조회
+operation::get-patients[snippets='http-request,http-response,path-parameters,response-body,response-fields']
+
+[[환자-단일-조회]]
+=== 환자 단일 조회
+operation::get-patient[snippets='http-request,http-response,path-parameters,response-body,response-fields']
+
+[[환자-등록]]
+=== 환자 등록
+operation::post-patient[snippets='http-request,http-response,request-body,response-body']
+
+[[환자-수정]]
+=== 환자 수정
+operation::patch-patient[snippets='http-request,http-response,path-parameters,response-body']
+
+[[환자-삭제]]
+=== 환자 삭제
+operation::delete-patient[snippets='http-request,http-response,path-parameters']
+

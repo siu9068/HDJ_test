@@ -81,7 +81,7 @@ public class PatientController {
     }
 
     @GetMapping("/patients")
-    public ResponseEntity<?> getPatients(@RequestBody GetPatientsRequest getPatientsRequest){
+    public ResponseEntity<?> getPatients(GetPatientsRequest getPatientsRequest){
         try {
             PatientsResponse patientsResponse = patientService.getPatients(getPatientsRequest);
             return ResponseEntityCustom.of(HttpStatus.OK,patientsResponse);

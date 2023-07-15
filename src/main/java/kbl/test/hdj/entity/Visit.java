@@ -1,5 +1,6 @@
 package kbl.test.hdj.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import kbl.test.hdj.converter.VisitTypeConverter;
 import kbl.test.hdj.enums.VisitType;
@@ -25,10 +26,12 @@ public class Visit extends BaseTime {
     @Column(name = "visit_type", columnDefinition = "varchar(10) not null comment '방문상태코드'")
     private VisitType visitType;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id", foreignKey = @ForeignKey(name = "fk_visit_patient"))
     private Patient patient;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id", foreignKey = @ForeignKey(name = "fk_visit_hospital"))
     private Hospital hospital;

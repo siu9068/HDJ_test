@@ -41,6 +41,7 @@ public class Patient extends BaseTime{
     @JoinColumn(name = "hospital_id", foreignKey = @ForeignKey(name = "fk_patient_hospital"))
     private Hospital hospital;
 
+    @Builder.Default
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
     private List<Visit> visits = new ArrayList<>();
 
