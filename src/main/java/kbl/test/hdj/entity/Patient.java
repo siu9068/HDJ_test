@@ -42,7 +42,7 @@ public class Patient extends BaseTime{
     private Hospital hospital;
 
     @Builder.Default
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "patient",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits = new ArrayList<>();
 
     public void updateInfo(UpdatePatientRequest updatePatientRequest) {
